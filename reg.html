@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Learn Anything Free</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-green-400 font-sans">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-950 text-green-400 px-6 py-4 flex justify-between items-center shadow-md">
+    <a href="main.html" class="text-lg md:text-xl font-bold">Learn Anything Free</a>
+    <div class="space-x-4 md:space-x-6 text-sm md:text-base">
+      <a href="main.html" class="hover:text-green-300">Home</a>
+      <a href="registration.html" class="hover:text-green-300 font-semibold underline">Register</a>
+    </div>
+  </nav>
+
+  <!-- Registration Form Section -->
+  <section class="flex items-center justify-center min-h-screen px-4 py-12">
+    <div class="w-full max-w-md bg-gray-900 p-6 md:p-8 rounded-xl shadow-lg">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Register</h2>
+
+      <form id="registerForm" class="space-y-6">
+        <div>
+          <label for="email" class="block text-sm mb-2">Email ID</label>
+          <input type="email" id="email" name="email" required
+            class="w-full px-4 py-2 rounded-lg bg-black border border-green-400 text-green-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm mb-2">Password</label>
+          <input type="password" id="password" name="password" required
+            class="w-full px-4 py-2 rounded-lg bg-black border border-green-400 text-green-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </div>
+
+        <button type="submit"
+          class="w-full py-2 bg-green-500 hover:bg-green-600 text-black font-semibold rounded-lg transition duration-300">
+          SUBMIT
+        </button>
+      </form>
+
+      <!-- Success Message -->
+      <p id="successMessage" class="text-green-300 mt-4 hidden text-center">✅ Registration successful! Redirecting...</p>
+    </div>
+  </section>
+
+  <!-- Script for Form Submission + Redirect -->
+  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent real submission
+      message.classList.remove('hidden'); // Show success
+      form.reset();
+
+      // Redirect to main page after 2 seconds
+      setTimeout(() => {
+        window.location.href = "main.html"; // Use index.html if that's your homepage
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
